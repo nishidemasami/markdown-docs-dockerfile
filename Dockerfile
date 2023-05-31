@@ -1,7 +1,9 @@
-LABEL version="1.1.1"
+FROM ubuntu:latest
+
+LABEL version="1.1.2"
 LABEL org.opencontainers.image.source=https://github.com/nishidemasami/markdown-docs-dockerfile
 
-FROM ubuntu:latest
+MAINTAINER @nishidemasami
 
 RUN apt update -y && \
   apt install wget gnupg -y && \
