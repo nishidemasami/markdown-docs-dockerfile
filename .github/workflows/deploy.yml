@@ -24,7 +24,7 @@ jobs:
           docker build -t ghcr.io/${{ env.RELEASE_OWNER }}/${{ env.RELEASE_IMAGE }}:${{ env.RELEASE_VERSION }} .
       - name: Login
         run: |
-          echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u ${{ env.RELEASE_OWNER }} --password-stdin
+          echo ${{ secrets.GHCR_IO_SECRET_KEY }} | docker login ghcr.io -u ${{ env.RELEASE_OWNER }} --password-stdin
       - name: Push by tag name
         run: |
           docker push ghcr.io/${{ env.RELEASE_OWNER }}/${{ env.RELEASE_IMAGE }}:${{ env.RELEASE_VERSION }}
