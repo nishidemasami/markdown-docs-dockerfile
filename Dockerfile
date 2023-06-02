@@ -1,6 +1,6 @@
 FROM debian:bullseye-slim
 
-LABEL version="1.1.12"
+LABEL version="1.1.13"
 LABEL org.opencontainers.image.source=https://github.com/nishidemasami/markdown-docs-dockerfile
 LABEL org.opencontainers.image.description="Dockerfile for honkit to convert markdown files into a pdf file"
 
@@ -18,7 +18,7 @@ RUN apt update -y && \
 	wget -nv -O- https://download.calibre-ebook.com/linux-installer.sh | sh /dev/stdin && \
 	groupadd -g 1000 honkitgroup && useradd -m -s /bin/bash -u 1001 -g 1000 honkituser
 
-WORKDIR /workspace/honkit
-RUN chown -R honkituser:honkitgroup /workspace/honkit
+WORKDIR /workspaces/honkit
+RUN chown -R honkituser:honkitgroup /workspaces/honkit
 USER honkituser
 RUN npm install honkit gitbook-plugin-katex-pro gitbook-plugin-mermaid-newface gitbook-plugin-uml
