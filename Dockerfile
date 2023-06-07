@@ -1,6 +1,6 @@
 FROM debian:bullseye-slim
 
-LABEL version="1.1.14"
+LABEL version="1.1.15"
 LABEL org.opencontainers.image.source=https://github.com/nishidemasami/markdown-docs-dockerfile
 LABEL org.opencontainers.image.description="Dockerfile for honkit to convert markdown files into a pdf file"
 
