@@ -21,5 +21,5 @@ RUN apt update -y && \
 WORKDIR /workspaces/honkit
 RUN chown -R honkituser:honkitgroup /workspaces/honkit
 USER honkituser
-RUN npm install honkit gitbook-plugin-katex-pro gitbook-plugin-mermaid-newface nishidemasami/gitbook-plugin-uml-forktest
+RUN npm install honkit gitbook-plugin-katex-pro gitbook-plugin-mermaid-newface git+ssh://git@github.com:nishidemasami/gitbook-plugin-uml-forktest
 
