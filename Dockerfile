@@ -16,6 +16,9 @@ RUN apt update -y && \
 	apt update -y && \
 	apt install google-chrome-stable git unzip xdg-utils libegl1 libopengl0 fonts-noto graphviz fonts-noto-cjk qtbase5-dev libssl-dev libxcursor-dev libxcomposite-dev libxdamage-dev libxrandr-dev libfontconfig1-dev libxss-dev libwebp-dev libjsoncpp-dev libopus-dev libminizip-dev libavutil-dev libavformat-dev libavcodec-dev libevent-dev libvpx-dev libsnappy-dev libre2-dev libprotobuf-dev protobuf-compiler -y && \
 	wget -nv -O- https://download.calibre-ebook.com/linux-installer.sh | sh /dev/stdin && \
-	groupadd -g 1000 runner && useradd -m -s /bin/bash -u 1000 -g 1000 runner
+	groupadd -g 1000 runner && useradd -m -s /bin/bash -u 1000 -g 1000 runner && \
+        usermod --append -G wheel runner
 
+WORKDIR /workspaces/runner
+RUN chown -R runner:runner /workspaces/runner
 USER runner
