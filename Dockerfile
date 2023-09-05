@@ -1,6 +1,6 @@
 FROM ubuntu:22.04
 
-LABEL version="1.1.16"
+LABEL version="1.1.17"
 LABEL org.opencontainers.image.source=https://github.com/nishidemasami/markdown-docs-dockerfile
 LABEL org.opencontainers.image.description="Dockerfile for honkit to convert markdown files into a pdf file"
 
@@ -16,3 +16,5 @@ RUN apt update -y && \
 	apt update -y && \
 	apt install google-chrome-stable git unzip xdg-utils libegl1 libopengl0 fonts-noto graphviz fonts-noto-cjk qtbase5-dev libssl-dev libxcursor-dev libxcomposite-dev libxdamage-dev libxrandr-dev libfontconfig1-dev libxss-dev libwebp-dev libjsoncpp-dev libopus-dev libminizip-dev libavutil-dev libavformat-dev libavcodec-dev libevent-dev libvpx-dev libsnappy-dev libre2-dev libprotobuf-dev protobuf-compiler -y && \
 	wget -nv -O- https://download.calibre-ebook.com/linux-installer.sh | sh /dev/stdin
+
+USER honkituser
