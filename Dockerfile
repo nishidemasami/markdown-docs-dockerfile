@@ -1,6 +1,6 @@
 FROM debian:12
 
-LABEL version="1.1.25"
+LABEL version="1.1.26"
 LABEL org.opencontainers.image.source=https://github.com/nishidemasami/markdown-docs-dockerfile
 LABEL org.opencontainers.image.description="Dockerfile for honkit to convert markdown files into a PDF file"
 
