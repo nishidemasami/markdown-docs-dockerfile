@@ -15,8 +15,8 @@ jobs:
         run: |
           OWNER=$(echo ${{ github.repository_owner }})
           echo "RELEASE_OWNER=$OWNER" >> $GITHUB_ENV
-          IMAGE=markdown-docs
-          echo "RELEASE_IMAGE=$IMAGE" >> $GITHUB_ENV
+          echo "REPOSITORY_NAME=${GITHUB_REPOSITORY#${GITHUB_REPOSITORY_OWNER}/}" >> $GITHUB_ENV
+          echo "RELEASE_IMAGE=$REPOSITORY_NAME" >> $GITHUB_ENV
           VERSION=$(echo ${{ github.ref }} | sed -e "s#refs/tags/##g")
           echo "RELEASE_VERSION=$VERSION" >> $GITHUB_ENV
       - name: Build
