@@ -15,7 +15,7 @@ jobs:
         run: |
           OWNER=$(echo ${{ github.repository_owner }})
           echo "RELEASE_OWNER=$OWNER" >> $GITHUB_ENV
-          echo "REPOSITORY_NAME=${GITHUB_REPOSITORY#${GITHUB_REPOSITORY_OWNER}/}" >> $GITHUB_ENV
+          echo "REPOSITORY_NAME=${GITHUB_REPOSITORY#${GITHUB_REPOSITORY_OWNER}}" >> $GITHUB_ENV
           echo "RELEASE_IMAGE=$REPOSITORY_NAME" >> $GITHUB_ENV
           VERSION=$(echo ${{ github.ref }} | sed -e "s#refs/tags/##g")
           echo "RELEASE_VERSION=$VERSION" >> $GITHUB_ENV
@@ -28,7 +28,3 @@ jobs:
       - name: Push by tag name
         run: |
           docker push ghcr.io/${{ env.RELEASE_OWNER }}/${{ env.RELEASE_IMAGE }}:${{ env.RELEASE_VERSION }}
-      - name: Push by latest
-        run: |
-          docker image tag ghcr.io/${{ env.RELEASE_OWNER }}/${{ env.RELEASE_IMAGE }}:${{ env.RELEASE_VERSION }} ghcr.io/${{ env.RELEASE_OWNER }}/${{ env.RELEASE_IMAGE }}:latest
-          docker push ghcr.io/${{ env.RELEASE_OWNER }}/${{ env.RELEASE_IMAGE }}:latest
