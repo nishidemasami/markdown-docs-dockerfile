@@ -1,6 +1,6 @@
 FROM ubuntu:23.10
 
-LABEL version="1.1.34"
+LABEL version="1.1.35"
 LABEL org.opencontainers.image.source=https://github.com/nishidemasami/markdown-docs-dockerfile
 LABEL org.opencontainers.image.description="Dockerfile for honkit to convert markdown files into a PDF file"
 
@@ -21,7 +21,7 @@ RUN mkdir ~/.npm-global
 RUN npm config set prefix '~/.npm-global'
 RUN echo export PATH=~/.npm-global/bin:$PATH >> ~/.profile
 RUN . ~/.profile
-RUN npm install -g honkit gitbook-plugin-mermaid-newface gitbook-plugin-uml gitbook-plugin-katex-pro @mermaid-js/mermaid-cli
+RUN npm install -g honkit gitbook-plugin-mermaid-newface gitbook-plugin-uml gitbook-plugin-katex-pro honkit-plugin-prism @mermaid-js/mermaid-cli
 
 ENV PATH=~/.npm-global/bin:$PATH
 
