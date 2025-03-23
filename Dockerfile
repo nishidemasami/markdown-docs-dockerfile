@@ -1,6 +1,6 @@
-FROM ubuntu:23.10
+FROM ubuntu:24.10
 
-LABEL version="1.1.35"
+LABEL version="1.1.36"
 LABEL org.opencontainers.image.source=https://github.com/nishidemasami/markdown-docs-dockerfile
 LABEL org.opencontainers.image.description="Dockerfile for honkit to convert markdown files into a PDF file"
 
