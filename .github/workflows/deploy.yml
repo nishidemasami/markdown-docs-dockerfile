@@ -9,6 +9,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read    # コードの読み取り権限
+      packages: write   # GHCRへの書き込み権限
     steps:
       - uses: actions/checkout@v3
       - name: Set env
